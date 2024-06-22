@@ -140,6 +140,10 @@ nav {
 	display: table;
 }
 
+.column-labels .product-image:first-child{
+	text-align: center;
+}
+
 .group:after,
 .shopping-cart:after,
 .column-labels:after,
@@ -208,6 +212,7 @@ label {
 
 .product .product-image img {
 	width: 100px;
+	height: 100px;
 }
 
 .product .product-details .product-title {
@@ -335,13 +340,53 @@ label {
 		padding: 0px 0px;
 	}
 
-	.navbar-left{
+	.navbar-left {
 		justify-content: end;
 		width: 100%;
 	}
 
-	.navbar-left li:first-child{
+	.navbar-left li:first-child {
 		margin-right: 20px;
+	}
+
+	.product-line-price {
+		margin-top: 0px !important;
+
+	}
+
+	.product-quantity {
+		display: flex;
+		align-items: center;
+	}
+
+	.totals-item-total {
+		display: flex;
+	}
+
+	.product-quantity {
+		float: none;
+	}
+
+	.product-quantity:before {
+		display: none;
+	}
+
+	.totals .totals-item label {
+		text-align: left;
+	}
+
+	.totals .totals-item .totals-value {
+		width: 100%;
+		text-align: right;
+	}
+
+	.product-quantity button {
+		width: 10px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 30px;
 	}
 
 }
@@ -352,15 +397,8 @@ label {
 		float: right;
 	}
 
-	.product-line-price {
-		float: right;
-		clear: left;
-		width: auto;
-		margin-top: 10px;
-	}
-
 	.product .product-line-price:before {
-		content: "Item Total: $";
+		content: "$";
 	}
 
 	.totals .totals-item label {
@@ -373,21 +411,35 @@ label {
 }
 
 
-@media only screen and (min-width: 767px) and (max-width: 992px){
-	.container{
+@media only screen and (min-width: 767px) and (max-width: 992px) {
+	.container {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
 
-@media only screen and (min-width: 567px) and (max-width: 767px){
-	.container{
+@media only screen and (min-width: 567px) and (max-width: 767px) {
+	.container {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media only screen and (max-width: 567px) {
-	.container{
+	.container {
 		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+@media only screen and (min-width:650px) and (max-width:1024px) {
+	.product-quantity{
+		display: flex;
+	}
+	.product-quantity button {
+		width: 10px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 30px;
 	}
 }
