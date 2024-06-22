@@ -9,7 +9,7 @@ const reducer  = combineReducers({
     wishlist: []
 });
 
-const store = createStore(reducer,__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__?.());
 
 export default store;
 
