@@ -1,7 +1,6 @@
 import React,{ useState } from 'react'
 import { useSelector } from 'react-redux';
 import Cart from './Cart';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function CartList() {

@@ -1,17 +1,33 @@
-import { combineReducers, createStore } from "redux";
-import productReducer from "./productReducer";
-import cartItemReducer from "./cartItemReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import productSlice from "./slice//productReducer";
+import cartSlice from "./slice/cartItemReducer";
+import wishListReduer from "./slice/wishListReduer";
 
 
-const reducer  = combineReducers({
-    products: productReducer,
-    cartItem: cartItemReducer,
-    wishlist: []
+
+const logger = (store => (next) => (action) => {
+    // console.log('Store',store);
+    // console.log('next',next);
+    // console.log('action',action);
+    next(action);
 });
 
-const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__?.());
+const store = configureStore({
+    reducer: {
+        products: productSlice,
+        cartItem: cartSlice,
+        wishList: wishListReduer
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+});
 
 export default store;
+
+// const reducer = combineReducers({
+//     products: productReducer,
+//     cartItem: cartSlice,
+//     wishList: wishListReduer
+// });
 
 
 // const initialState = {
@@ -42,3 +58,4 @@ export default store;
 // const store = createStore(counterReducer,__REDUX_DEVTOOLS_EXTENSION__());
 // store.dispatch({ type: 'counter/incremented', payload: 10 });
 // store.dispatch({ type: 'counter/incremented', payload: 20  });
+// store.dispatch({ type: 'wishlist/addWishList',payload: { productId: 1 } });

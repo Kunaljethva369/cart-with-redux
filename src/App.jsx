@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Components/Headers.jsx';
 import ProductList from './Components/ProductList.jsx';
 import store from './store';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import CartList from './Components/CartList.jsx';
 
 function App() {
@@ -11,16 +11,17 @@ function App() {
   const guide = createBrowserRouter([
     {
       children: [
-        { path: "/", element: <>
-          <Header/>
-          <ProductList /> 
-        </>
+        {
+          path: "/",element: <>
+            <Header />
+            <ProductList />
+          </>
         },
         {
           path: "/cart",
           element: <>
             <Header />
-            <CartList/>
+            <CartList />
           </>
         }
       ]
@@ -30,7 +31,7 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <RouterProvider router={guide}/>
+        <RouterProvider router={guide} />
       </Provider>
     </>
   )
